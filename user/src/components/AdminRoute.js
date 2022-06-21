@@ -4,7 +4,11 @@ import { Route, Navigate } from "react-router-dom";
 
 import { isAuthenticated } from "../helper/auth";
 
-const AdminRoute = ({ element: Component, ...rest }) => {
+const AdminRoute = ({
+  redirectPath = "/SignIn",
+  element: Component,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}
@@ -12,7 +16,7 @@ const AdminRoute = ({ element: Component, ...rest }) => {
         isAuthenticated() && isAuthenticated().role === 1 ? (
           <Component {...props} />
         ) : (
-          <Navigate to="/signin" />
+          <Navigate to={redirectPath} />
         )
       }
     />
