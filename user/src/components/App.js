@@ -9,9 +9,10 @@ import SignIn from "./SignIn";
 import UserDashboard from "./UserDashboard";
 import AdminDashboard from "./AdminDashboard";
 import DepartmentDashboard from "./DepartmentDashboard";
-import AdminRoute from "./AdminRoute";
+//import AdminRoute from "./AdminRoute";
 // import UserRoute from "./UserRoute";
 // import DepartmentRoute from "./DepartmentRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 import NotFound from "./NotFound";
 const App = () => (
@@ -23,10 +24,10 @@ const App = () => (
         <Route exact path="/SignIn" element={<SignIn />} />
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/user/dashboard" element={<UserDashboard />} />
-        <AdminRoute
+        <Route
           exact
           path="/admin/dashboard"
-          element={<AdminDashboard />}
+          element={<ProtectedRoute Component={AdminDashboard} />}
         />
         <Route
           exact

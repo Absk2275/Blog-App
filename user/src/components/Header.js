@@ -34,17 +34,17 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/" className="nav-link">
-                  Home
+                  <i className="fas fa-home"></i> Home
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="./SignIn" className="nav-link">
-                  SignIn
+                <i className="fas fa-edit"></i> SignIn
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="./SignUp" className="nav-link">
-                  SignUp
+                <i className="fas fa-sign-in-alt"></i> SignUp
                 </Link>
               </li>
             </Fragment>
@@ -54,7 +54,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/user/dashboard" className="nav-link">
-                  Dashboard
+                <i className="fas fa-home"></i> Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -64,7 +64,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/admin/dashboard" className="nav-link">
-                  Admin
+                <i className="fas fa-home"></i> Admin Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -74,7 +74,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/department/dashboard" className="nav-link">
-                  Department
+                <i className="fas fa-home"></i> Department Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -84,7 +84,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <button className="btn btn-warning" onClick={handleLogout}>
-                  Logout
+                <i className="fas fa-sign-out-alt"></i> Logout
                 </button>
               </li>
             </Fragment>

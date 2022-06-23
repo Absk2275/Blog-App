@@ -73,6 +73,11 @@ const Signin = () => {
         })
         .catch((err) => {
           console.log("signin api function error", err);
+          setFormData({
+            ...formData,
+            loading:false,
+            errormsg: err.response.data.errorMessage,
+          })
         });
     }
   };
