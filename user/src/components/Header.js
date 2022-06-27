@@ -39,12 +39,12 @@ const Header = ({ navigate }) => {
               </li>
               <li className="nav-item">
                 <Link to="./SignIn" className="nav-link">
-                <i className="fas fa-edit"></i> SignIn
+                  <i className="fas fa-edit"></i> SignIn
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="./SignUp" className="nav-link">
-                <i className="fas fa-sign-in-alt"></i> SignUp
+                  <i className="fas fa-sign-in-alt"></i> SignUp
                 </Link>
               </li>
             </Fragment>
@@ -53,8 +53,8 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 0 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/user/dashboard" className="nav-link">
-                <i className="fas fa-home"></i> Dashboard
+                <Link to="/products" className="nav-link">
+                  <i className="fas fa-home"></i> Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -64,7 +64,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/admin/dashboard" className="nav-link">
-                <i className="fas fa-home"></i> Admin Dashboard
+                  <i className="fas fa-home"></i> Admin Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -74,7 +74,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <Link to="/department/dashboard" className="nav-link">
-                <i className="fas fa-home"></i> Department Dashboard
+                  <i className="fas fa-home"></i> Department Dashboard
                 </Link>
               </li>
             </Fragment>
@@ -84,7 +84,7 @@ const Header = ({ navigate }) => {
             <Fragment>
               <li className="nav-item active">
                 <button className="btn btn-warning" onClick={handleLogout}>
-                <i className="fas fa-sign-out-alt"></i> Logout
+                  <i className="fas fa-sign-out-alt"></i> Logout
                 </button>
               </li>
             </Fragment>
