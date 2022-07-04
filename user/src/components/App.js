@@ -11,7 +11,6 @@ import AdminDashboard from "./AdminDashboard";
 import DepartmentDashboard from "./DepartmentDashboard";
 
 import Products from "./products/Products";
-
 import AddProduct from "./products/AddProduct";
 import ProductDisplay from "./products/ProductDisplay";
 import ListProducts from "./products/ListProducts";
@@ -33,7 +32,7 @@ const App = () => (
         <Route exact path="/SignUp" element={<SignUp />} />
         {/* <Route exact path="/user/dashboard" element={<UserDashboard />}> */}
 
-        <Route path="/products" element={<Products />}>
+        <Route path="Products" element={<Products />}>
           <Route path="search" element={<Search />} />
           <Route path="list" element={<ListProducts />} />
           <Route path="add" element={<AddProduct />} />

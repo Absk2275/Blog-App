@@ -106,14 +106,17 @@ a {
   display: flex;
   justify-content: center;
   padding-top: 60px;
+  margin-bottom: 3px;
 }
 
 .productsList {
-  columns: 3 auto;
+  /* columns: 3 auto; */
   display: inline-block;
+  margin-bottom: 3px;
 }
 
 .productDisplay {
+  position: relative;
   width: 300px;
   height: 300px;
   background-color: rgb(233, 233, 233);
