@@ -2,21 +2,22 @@ import React from "react";
 import { ProductsData } from "../../ProductsData";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+
 function ListProducts() {
   const navigate = useNavigate();
   return (
     <div className="listOfProducts">
       <div className="productsList">
-        {ProductsData.map((product) => {
+        {ProductsData.map((pro) => {
           return (
             <div
               className="productDisplay"
               onClick={() => {
-                navigate(`/products/${product.id}`);
+                navigate(`/products/${pro.id}`);
               }}
             >
-              <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
-                {product.complaint_id}
+              <nav class="navbar navbar-expand-lg navbar-light bg-warning rounded">
+                {pro.complaint_id}
                 <button
                   class="btn btn-outline-secondary my-2 my-sm-0 ms-auto"
                   type="submit"
@@ -24,11 +25,11 @@ function ListProducts() {
                   view
                 </button>
               </nav>
-              <p>{product.name}</p>
-              <p>{product.description}</p>
-              <p>{product.Complaint_details}</p>
-              <p>{product.Phone_No}</p>
-              <p>{product.image}</p>
+              <p>{pro.name}</p>
+              <p>{pro.description}</p>
+              <p>{pro.Complaint_details}</p>
+              <p>{pro.Phone_No}</p>
+              <p>{pro.image}</p>
             </div>
           );
         })}

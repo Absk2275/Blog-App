@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { isAuthenticated, logout } from "../helper/auth";
 import withRouter from "./withRouter";
+import Komplaint from "./Komplaint.png";
 
 const Header = ({ navigate }) => {
   const handleLogout = (evt) => {
@@ -12,9 +13,9 @@ const Header = ({ navigate }) => {
   };
 
   const showNavigation = () => (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-primary">
       <Link to="/" className="navbar-brand">
-        LOGO
+        <img src={Komplaint} alt="logo" height={40} width={40} />
       </Link>
       <button
         className="navbar-toggler"
@@ -53,7 +54,7 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 0 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/products" className="nav-link">
+                <Link to="/products/add" className="nav-link">
                   <i className="fas fa-home"></i> Dashboard
                 </Link>
               </li>
@@ -63,7 +64,7 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 1 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/admin/dashboard" className="nav-link">
+                <Link to="admin/dashboard/Pending" className="nav-link">
                   <i className="fas fa-home"></i> Admin Dashboard
                 </Link>
               </li>
@@ -83,7 +84,10 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && (
             <Fragment>
               <li className="nav-item active">
-                <button className="btn btn-warning" onClick={handleLogout}>
+                <button
+                  className="btn btn-warning position-absolute"
+                  onClick={handleLogout}
+                >
                   <i className="fas fa-sign-out-alt"></i> Logout
                 </button>
               </li>

@@ -18,7 +18,7 @@ const Signin = () => {
     } else if (isAuthenticated() && isAuthenticated().role === 2) {
       navigate("/department/dashboard");
     } else if (isAuthenticated() && isAuthenticated().role === 0) {
-      navigate("/user/dashboard");
+      navigate("/products");
     }
   }, [navigate]);
 
@@ -62,22 +62,22 @@ const Signin = () => {
 
           if (isAuthenticated() && isAuthenticated().role === 1) {
             console.log("Redirecting to admin dashboard");
-            navigate("/admin/dashboard");
+            navigate("/admin/dashboard/Pending");
           } else if (isAuthenticated() && isAuthenticated().role === 2) {
             console.log("Redirecting to Department dashboard");
             navigate("/department/dashboard");
           } else {
             console.log("Redirecting to user dashboard");
-            navigate("/user/dashboard");
+            navigate("/products/add");
           }
         })
         .catch((err) => {
           console.log("signin api function error", err);
           setFormData({
             ...formData,
-            loading:false,
+            loading: false,
             errormsg: err.response.data.errorMessage,
-          })
+          });
         });
     }
   };

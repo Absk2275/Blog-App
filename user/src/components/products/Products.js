@@ -1,14 +1,14 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "../App.css";
 
 function Products() {
   return (
     <div className="products">
       <div className="productsNav">
-        <Link to="/products/search"> My Profile </Link>
-        <Link to="/products/add"> Post Complaint </Link>
-        <Link to="/products/list"> My Complaint </Link>
+        <NavLink to="/products/search"> My Profile </NavLink>
+        <NavLink to="/products/add"> Post Complaint </NavLink>
+        <NavLink to="/products/list"> My Complaint </NavLink>
       </div>
 
       <Outlet />
