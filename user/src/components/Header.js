@@ -15,7 +15,7 @@ const Header = ({ navigate }) => {
   const showNavigation = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
       <Link to="/" className="navbar-brand">
-        <img src={Komplaint} alt="logo" height={41} width={41} />
+        <img src={Komplaint} alt="logo" height={33} width={33} />
       </Link>
       <button
         className="navbar-toggler"

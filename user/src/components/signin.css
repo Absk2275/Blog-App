@@ -75,3 +75,8 @@
   padding-top: 20px;
   font-family: Georgia, serif;
 }
+
+.form__text a {
+  color: hwb(262 3% 57% / 0.911);
+  font-size: 20px;
+}
