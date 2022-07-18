@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const PostComp = require("../models/PostComp");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { jwtSecret, jwtExpire } = require("../config/keys");
@@ -73,4 +74,50 @@ exports.signinController = async (req, res) => {
       errorMessage: "Server Error",
     });
   }
+};
+
+
+exports.postController = async(req,res) =>{
+
+
+  const { firstName,
+    lastName,
+    phoneNo,
+    email,
+    address,
+    district,
+    block,
+    pincode,
+    description } = req.body;
+
+
+    try {
+    const newPost = new PostComp();
+    // const uid = Math.floor(Math.random()*1000000)+1
+    // const post = await PostComp.findOne({ uid: uid });
+    // if(post){
+    //   uid = Math.floor(Math.random()*1000000)+1
+    // }
+    newPost.uid= Date.now(),
+    newPost.firstName= firstName,
+    newPost.lastName =lastName,
+    newPost.phoneNo =phoneNo,
+    newPost.email= email,
+    newPost.address=address,
+    newPost.district= district,
+    newPost.block =block,
+    newPost.pincode= pincode,
+    newPost.description =description 
+
+    await newPost.save();
+    res.json({
+      successMessage: "Complaint has been posted !",
+    });
+    }
+    catch (err) {
+      console.log("postController error: ", err);
+      res.status(500).json({
+        errorMessage: "Server error",
+      });
+    }
 };

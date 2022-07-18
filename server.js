@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./database/db");
 const morgan = require("morgan");
 const authRoutes = require("./routes/auth");
+const PostComp = require("./models/PostComp");
 
 // middleware
 app.use(cors());
@@ -15,6 +16,15 @@ connectDB();
 
 app.get("/", (req, res) => {
   res.send("Inside Server");
+});
+
+app.route("/postcomp").get((req, res) => {
+	PostComp.find({}, (err, postcomp) => {
+		if (err) {
+			res.send(err);
+		}
+		res.json(postcomp);
+	});
 });
 
 const port = process.env.PORT || 5000;

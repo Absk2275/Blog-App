@@ -1,21 +1,38 @@
-import React from "react";
+
 import { useParams } from "react-router-dom";
-import { ProductsData } from "../../ProductsData";
+import axios from "axios";
 import "./PostComplaint.css";
+import React, { useState, useEffect} from "react";
+
 
 function ProductDisplay() {
-  const { id } = useParams();
+  const [contacts, setContacts] = useState([]);
+  const getAllContacts = async () => {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		try {
+			const res = await axios.get("http://localhost:5000/postcomp", config);
+			setContacts(res.data);
+		} catch (err) {
+			console.error("error", err);
+		}
+	};
+
+	useEffect(() => {
+		getAllContacts();
+	}, []);
+
+ 
   return (
+    
     <div className="listOfProducts">
       <div className="productDisplay">
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning rounded ">
-          {ProductsData[id - 1].complaint_id}{" "}
-        </nav>
-        <p>{ProductsData[id - 1].name}</p>
-        <p>{ProductsData[id - 1].description}</p>{" "}
-        <p>{ProductsData[id - 1].Complaint_details}</p>{" "}
-        <p>{ProductsData[id - 1].Phone_No}</p>{" "}
-        <p>{ProductsData[id - 1].image}</p>{" "}
+  
+        
+       
       </div>
     </div>
   );

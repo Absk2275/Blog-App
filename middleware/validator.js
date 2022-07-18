@@ -26,10 +26,30 @@ exports.signinValidator = [
 exports.validatorResult = (req, res, next) => {
   const result = validationResult(req);
   const hasErrors = !result.isEmpty();
-
+ 
   if (hasErrors) {
-    console.log("hasErrors", hasErrors);
-    console.log("result", result);
+    
+    const firstError = result.array()[0].msg;
+    console.log(firstError);
+    return res.status(400).json({
+      errorMessage: firstError
+    })
+    // console.log("hasErrors", hasErrors);
+    // console.log("result", result);
   }
   next();
 };
+
+exports.postValidator =[
+  
+  check("email").isEmail().normalizeEmail().withMessage("Ivalid Email"),
+  check("phoneNo")
+    .isLength({ min: 10, max: 10 })
+    .isMobilePhone()
+    .withMessage("Ivalid Mobile Number"),
+  
+  check("pincode").isLength({min:6, max: 6 }).withMessage("Invalid Pincode"),
+  
+
+
+];
