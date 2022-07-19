@@ -3,6 +3,7 @@ import { ProductsData } from "../../ProductsData";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
+import loaclemail from "../../helper/localemail";
 
 
 const ListProducts =()=>{
@@ -25,11 +26,16 @@ const ListProducts =()=>{
 	useEffect(() => {
 		getAllContacts();
 	}, []);
-  console.log(contacts);
+  // console.log(contacts);
+  const mycomp = contacts.filter((obj) => {
+    return obj.email === loaclemail();
+  });
+  console.log(mycomp);
+  if(mycomp.length>0){
   return (
     <div className="listOfProducts">
       <div className="productsList">
-        {contacts.map((pro) => {
+        {mycomp.map((pro) => {
           return (
             <div
               className="productDisplay"
@@ -55,7 +61,20 @@ const ListProducts =()=>{
         })}
       </div>
     </div>
+      
   );
+      }
+      else{
+        return(
+          <div className="listOfProducts">
+          <div className="productsList">
+            <p>
+              No Compalint posted yet
+            </p>
+          </div>
+          </div>
+        )
+      }
 }
 
 export default ListProducts;
