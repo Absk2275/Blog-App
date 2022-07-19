@@ -86,6 +86,7 @@ const Form=() =>{
       district:"",
       block:"",
       pincode:"",
+      department:"",
       description:"",
       errormsg: false,
       successmsg: false,
@@ -100,6 +101,7 @@ const Form=() =>{
     district,
     block,
     pincode,
+    department,
     description,
     errormsg,
     successmsg,
@@ -150,7 +152,7 @@ const Form=() =>{
         isEmpty(email) ||
         isEmpty(address) ||
         isEmpty(district)||
-        
+        isEmpty(department)||
         isEmpty(pincode)||
         isEmpty(description)
         
@@ -181,6 +183,7 @@ const Form=() =>{
           district,
           block,
           pincode,
+          department,
           description
          } = formData;
         const data = { firstName,
@@ -191,6 +194,7 @@ const Form=() =>{
           district,
           block,
           pincode,
+          department,
           description
            };
   
@@ -206,7 +210,7 @@ const Form=() =>{
             console.log("Axios Post Compalint success", response);
             setFormData({
               ...formData,
-             
+              
               successmsg: response.data.successMessage,
               firstName: "",
               lastName:"",
@@ -218,6 +222,8 @@ const Form=() =>{
               pincode:"",
               description:"",
               loading: false,
+              errormsg:"",
+              status:"0",
           
             });
           })
@@ -291,6 +297,17 @@ const postComp=()=>(
               </div>
             </div>
 
+            <div className="input-box">
+            <span className="details">Department</span>
+            <select name="department" value={department}  onChange={handleChange} >
+            <option value="Power Department" >Power Department</option>
+            <option value="Public Health and Engineering Department -Water" >Public Health and Engineering Department -Water </option>
+            <option value="Public Health and Engineering Department - Sewage">Public Health and Engineering Department - Sewage</option>
+            
+          </select>
+            </div>
+           
+            <br></br>
             <div className="input-box">
               <label>
                 <span className="details">Complaint Description</span>
