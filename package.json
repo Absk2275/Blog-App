@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.18.1",
@@ -24,6 +25,4 @@
     "concurrently": "^7.2.1",
     "morgan": "^1.10.0"
   }
-  
-
 }

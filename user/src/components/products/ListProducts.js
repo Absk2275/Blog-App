@@ -1,13 +1,17 @@
 import React, { useState, useEffect} from "react";
-import { ProductsData } from "../../ProductsData";
+// import { ProductsData } from "../../ProductsData";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 import loaclemail from "../../helper/localemail";
-
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 
 const ListProducts =()=>{
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const getAllContacts = async () => {
 		const config = {
@@ -50,44 +54,101 @@ const ListProducts =()=>{
   });
   console.log(mycomp);
 
-  const [currentContact, setCurrentContact] = useState({});
+  // const [currentContact, setCurrentContact] = useState({});
 	const [id, setId] = useState("");
 
-	const getContactById = async (id) => {
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-		try {
-			const res = await axios.get(`http://localhost:5000/contact/${id}`, config);
-			setCurrentContact(res.data);
-		} catch (err) {
-			console.error("error", err);
-		}
-	};
+	// const getContactById = async (id) => {
+	// 	const config = {
+	// 		headers: {
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 	};
+	// 	try {
+	// 		const res = await axios.get(`http://localhost:5000/postcomp/${id}`, config);
+	// 		setCurrentContact(res.data);
+	// 	} catch (err) {
+	// 		console.error("error", err);
+	// 	}
+	// };
 
-	useEffect(() => {
-		getContactById(id);
-	}, [id]);
+	// useEffect(() => {
+	// 	getContactById(id);
+	// }, [id]);
 
+ function handleprint(){
+  console.log(id)
+ }
+  const [open, setOpen] = useState(false);
+  function handleClose() {
+		setOpen(false);
+	}
+  function handleClickOpen() {
+		setOpen(true);
+	}
+  
 
-  if(mycomp.length>0){
   return (
+    
     <div className="listOfProducts">
+      <Dialog
+					open={open}
+					onClose={handleClose}
+					aria-labelledby="form-dialog-title"
+				>
+					<DialogContent>
+						<DialogContentText
+							component={"div"}
+							style={{ textAlign: "center" }}
+						>
+							<form className="contact-form">
+								<input
+									type="text"
+									name="firstName"
+									
+									placeholder={id.firstName}
+									
+									
+								></input>
+								<br />
+								<input
+									type="text"
+									name="lastName"
+									
+									placeholder={id.description}
+									
+									
+								></input>
+								<br />
+								<input
+									type="email"
+									name="email"
+									
+									placeholder={id.email}
+								
+								></input>
+								<br />
+								<Button className="btn" onClick={() => handleClose()}>
+									<Typography className="text-primary">Cancel</Typography>
+								</Button>
+							</form>
+						</DialogContentText>
+					</DialogContent>
+				</Dialog>
       <div className="productsList">
-        {mycomp.map((pro) => {
+      {mycomp.length>0 ?(
+        mycomp.map((pro) => {
           return (
-            <div
+           <div onClick={() => handleClickOpen()}>
+              
+                 <div
               className="productDisplay"
-             
+              onClick={() => setId(pro)}
             >
               <nav class="navbar navbar-expand-lg navbar-light bg-warning rounded">
                 {pro.uid}
                 <button
                   class="btn btn-outline-secondary my-2 my-sm-0 ms-auto"
                   type="submit"
-                  
                 >
                   view
                 </button>
@@ -97,26 +158,27 @@ const ListProducts =()=>{
               <p>{pro.description}</p>
               
               <p>{pro.phoneNo}</p>
-             
-            </div>
+             </div>
+              </div>
+              
+         
           );
-        })}
-      </div>
-    </div>
+        })
+     
       
-  );
-      }
-      else{
-        return(
-          <div className="listOfProducts">
-          <div className="productsList">
+
+      ):
+        (
+          
             <p>
               No Compalint posted yet
             </p>
-          </div>
-          </div>
+          
         )
-      }
+        }
+         </div>
+    </div>)
 }
+
 
 export default ListProducts;

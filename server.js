@@ -29,7 +29,7 @@ app.route("/postcomp").get((req, res) => {
 });
 
 //getting complaint by id
-app.route("/postcomp/:uid").get((req, res) => {
+app.route("/postcomp/:postcompID").get((req, res) => {
 	PostComp.findById(req.params.postcompID, (err, postcomp) => {
 		if (err) {
 			res.send(err);
@@ -39,7 +39,7 @@ app.route("/postcomp/:uid").get((req, res) => {
 });
 
 // updating complaint by ID
-app.route("/postcomp/:uid").put((req, res) => {
+app.route("/postcomp/:postcompID").put((req, res) => {
 	PostComp.findOneAndUpdate(
 		{ _id: req.params.postcompID },
 		req.body,
