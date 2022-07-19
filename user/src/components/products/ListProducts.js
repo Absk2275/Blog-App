@@ -49,6 +49,29 @@ const ListProducts =()=>{
     return 0;
   });
   console.log(mycomp);
+
+  const [currentContact, setCurrentContact] = useState({});
+	const [id, setId] = useState("");
+
+	const getContactById = async (id) => {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		try {
+			const res = await axios.get(`http://localhost:5000/contact/${id}`, config);
+			setCurrentContact(res.data);
+		} catch (err) {
+			console.error("error", err);
+		}
+	};
+
+	useEffect(() => {
+		getContactById(id);
+	}, [id]);
+
+
   if(mycomp.length>0){
   return (
     <div className="listOfProducts">
