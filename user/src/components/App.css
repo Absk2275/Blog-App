@@ -29,19 +29,6 @@ a {
   justify-content: center;
 }
 
-.productsNav a {
-  width: 260px;
-  height: 50px;
-  top: 2px;
-  background: #eb7623ff;
-
-  /* background-color: rgb(234, 185, 39); */
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .listOfProducts {
   padding-top: 20px;
   width: 100%;
@@ -73,4 +60,33 @@ a {
 
 .products a:focus {
   background-color: rgb(216, 91, 24);
+}
+
+.colu {
+  float: left;
+  width: 80%;
+  padding: 0 10px;
+  height: 20px;
+  align-items: center;
+}
+
+.productsNav a {
+  width: 260px;
+  height: 50px;
+  top: 2px;
+  background: #eb7623ff;
+  font-size: 2vw;
+  /* background-color: rgb(234, 185, 39); */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  max-width: 80vw !important;
+}
+
+.card-header .button {
+  align-items: right;
 }
