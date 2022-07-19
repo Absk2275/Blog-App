@@ -40,13 +40,25 @@ const PostSchema = new mongoose.Schema(
         type: Number,
         required: true,
       },
+      department: {
+        type: String,
+        required: true,
+      },
       description: {
         type: String,
         required: true,
       },
+      // adminread:{},
+      // adminstatus:{},
+      // deptread:{},
+      // deptstatus:{},
+      // empname:{},
+      // empID:{},
+      // empNo:{},
       date:{
         type:Date,
       },
+
       
   },
   { timestamps: true }

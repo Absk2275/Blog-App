@@ -88,6 +88,7 @@ exports.postController = async(req,res) =>{
     district,
     block,
     pincode,
+    department,
     description } = req.body;
 
 
@@ -107,6 +108,7 @@ exports.postController = async(req,res) =>{
     newPost.district= district,
     newPost.block =block,
     newPost.pincode= pincode,
+    newPost.department=department,
     newPost.description =description 
 
     await newPost.save();

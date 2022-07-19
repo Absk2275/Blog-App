@@ -30,6 +30,24 @@ const ListProducts =()=>{
   const mycomp = contacts.filter((obj) => {
     return obj.email === loaclemail();
   });
+  mycomp.sort(function (a, b) {
+    return a.uid - b.uid;
+  });
+  
+  // sort by name
+  mycomp.sort(function(a, b) {
+    const nameA = a.uid; // ignore upper and lowercase
+    const nameB = b.uid; // ignore upper and lowercase
+    if (nameA > nameB) {
+      return -1;
+    }
+    if (nameA < nameB) {
+      return 1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
   console.log(mycomp);
   if(mycomp.length>0){
   return (
@@ -46,6 +64,7 @@ const ListProducts =()=>{
                 <button
                   class="btn btn-outline-secondary my-2 my-sm-0 ms-auto"
                   type="submit"
+                  
                 >
                   view
                 </button>
