@@ -64,7 +64,7 @@
   font-weight: bold;
   font-size: 1.1rem;
   color: #ffffffff;
-  background: #eb7623ff;
+  background: #0099cc;
   border: none;
   border-radius: var(--border-radius);
   outline: none;
@@ -73,7 +73,7 @@
 
 .form__button:hover {
   color: #ffffffff;
-  background: #cc6013ff;
+  background: #33b5e5;
 }
 
 .form__text {
