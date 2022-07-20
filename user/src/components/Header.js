@@ -15,8 +15,10 @@ const Header = ({ navigate }) => {
   const showNavigation = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
       <Link to="/" className="navbar-brand">
-        <img src={Komplaint} alt="logo" height={33} width={33} />
+        {/* <img src={Komplaint} alt="logo" height={33} width={33} /> */}
+        KOMPLAINT
       </Link>
+
       <button
         className="navbar-toggler"
         type="button"
@@ -53,9 +55,12 @@ const Header = ({ navigate }) => {
 
           {isAuthenticated() && isAuthenticated().role === 0 && (
             <Fragment>
-              <li className="nav-item active">
+              <li className="nav-item active text-light">
                 <Link to="/products/add" className="nav-link">
-                  <i className="fas fa-home"></i> Dashboard
+                  <p className="text-light mt-3 p-0">
+                    <i className="fas fa-home"></i>
+                    <b>Dashboard</b>
+                  </p>
                 </Link>
               </li>
             </Fragment>
@@ -83,13 +88,13 @@ const Header = ({ navigate }) => {
 
           {isAuthenticated() && (
             <Fragment>
-              <li className="nav-item active">
-                <button
-                  className="btn btn-warning position-absolute"
-                  onClick={handleLogout}
-                >
-                  <i className="fas fa-sign-out-alt"></i> Logout
-                </button>
+              <li className="nav-item">
+                <Link to="/signin" className="nav-link" onClick={handleLogout}>
+                  <button className="btn btn-warning">
+                    <i className="fas fa-sign-out-alt"></i>
+                    Logout
+                  </button>
+                </Link>
               </li>
             </Fragment>
           )}

@@ -17,7 +17,7 @@ a {
   display: flex;
 }
 
-/*Resize the wrap to see the search bar change!*/
+/* /Resize the wrap to see the search bar change!/ */
 
 .products {
   width: 100%;
@@ -59,7 +59,7 @@ a {
 }
 
 .products a:focus {
-  background-color: rgb(216, 91, 24);
+  background-color: #0099cc;
 }
 
 .colu {
@@ -74,13 +74,14 @@ a {
   width: 260px;
   height: 50px;
   top: 2px;
-  background: #eb7623ff;
+  background: #33b5e5;
   font-size: 2vw;
   /* background-color: rgb(234, 185, 39); */
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #e4dddd;
 }
 
 .card {
@@ -89,4 +90,14 @@ a {
 
 .card-header .button {
   align-items: right;
+}
+
+h {
+  text-decoration: underline;
+}
+.card {
+  display: flexbox;
+  text-align: left;
+  padding: 10px;
+  max-width: 80vw !important;
 }

@@ -89,30 +89,93 @@ const ListProducts = () => {
   return (
     <div class="row justify-content-evenly mt-2">
       <Dialog
+        fullScreen
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
         <DialogContent>
           <DialogContentText component={"div"} style={{ textAlign: "center" }}>
-            <form className="contact-form">
-              <input
-                type="text"
-                name="firstName"
-                placeholder={id.firstName}
-              ></input>
-              <br />
-              <input
-                type="text"
-                name="lastName"
-                placeholder={id.description}
-              ></input>
-              <br />
-              <input type="email" name="email" placeholder={id.email}></input>
-              <br />
-              <Button className="btn" onClick={() => handleClose()}>
-                <Typography className="text-primary">Cancel</Typography>
-              </Button>
+            <form className="contact-form ">
+              <nav class="navbar card-header  ">
+                <Button
+                  class="btn-close ms-auto "
+                  aria-label="Close"
+                  onClick={() => handleClose()}
+                ></Button>
+              </nav>
+              <div className="card">
+                <h4>
+                  <b>Complianer Details</b>
+                </h4>
+                <p class="m-0">
+                  <i class="fa-solid fa-user"></i>{" "}
+                  <h>
+                    {" "}
+                    {id.firstName} {id.lastName}
+                  </h>
+                </p>
+                <p class="m-0">
+                  <i class="fa-solid fa-location-dot"></i> {id.address}
+                </p>
+                <p class="m-0">
+                  <b>District: </b> {id.district}
+                </p>
+                <p class="m-0">
+                  <b>Block: </b> {id.block}
+                </p>
+                <p class="m-0">
+                  <b>Pincode: </b> {id.pincode}
+                </p>
+                <container>
+                  <Button class="btn btn-primary  btn-sm" disabled>
+                    <i class="fa-solid fa-envelope"></i> {id.email}
+                  </Button>
+                  <Button class="btn btn-primary  btn-sm m-1" disabled>
+                    {" "}
+                    <i class="fa-solid fa-phone"></i> {id.phoneNo}
+                  </Button>
+                </container>
+              </div>
+
+              <br></br>
+              <div className="card">
+                <h4>
+                  <b>Complaint Details</b>
+                </h4>
+                <p class="m-0">
+                  <Button class="btn btn-primary  btn-sm m-1" disabled>
+                    {" "}
+                    Complaint ID: {id.uid}
+                  </Button>
+                  <p>
+                    <b>Department: </b> {id.department}
+                  </p>
+                  <p class="m-0">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <b> Description :</b> {id.description}
+                  </p>
+                </p>
+              </div>
+              <br></br>
+              <div className="card">
+                <h4>
+                  <b>Assigned Employee</b>
+                </h4>
+                <p class="m-0">
+                  <Button class="btn btn-primary  btn-sm m-1" disabled>
+                    {" "}
+                    Complaint ID: {id.uid}
+                  </Button>
+                  <p>
+                    <b>Department: </b> {id.department}
+                  </p>
+                  <p class="m-0">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <b> Description :</b> {id.description}
+                  </p>
+                </p>
+              </div>
             </form>
           </DialogContentText>
         </DialogContent>
@@ -122,11 +185,13 @@ const ListProducts = () => {
           mycomp.map((pro) => {
             return (
               <div onClick={() => handleClickOpen()}>
-                <div class="card " onClick={() => setId(pro)}>
-                  <h5 className="card-header">{pro.department}</h5>
-                  <button className="btn btn-primary width-50%">
-                    {pro.uid}
-                  </button>
+                <div class="card m-3 p-0" onClick={() => setId(pro)}>
+                  <nav className="navbar card-header ">
+                    <h5>{pro.department}</h5>
+                    <button className="btn btn-primary my-2 my-sm-0 ms-auto disabled">
+                      Complaint ID: {pro.uid}
+                    </button>
+                  </nav>
 
                   <div class="card-body">
                     <h5 class="card-title">

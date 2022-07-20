@@ -6,9 +6,18 @@ function Products() {
   return (
     <div className="products">
       <div className="productsNav">
-        <NavLink to="/products/search"> My Profile </NavLink>
-        <NavLink to="/products/add"> Post Complaint </NavLink>
-        <NavLink to="/products/list"> My Complaint </NavLink>
+        <NavLink to="/products/search">
+          {" "}
+          <b>My Profile</b>{" "}
+        </NavLink>
+        <NavLink to="/products/add">
+          {" "}
+          <b>Post Complaint</b>{" "}
+        </NavLink>
+        <NavLink to="/products/list">
+          {" "}
+          <b>My Complaint</b>{" "}
+        </NavLink>
       </div>
 
       <Outlet />

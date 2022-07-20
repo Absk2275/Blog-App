@@ -18,7 +18,7 @@
   width: 260px;
   height: 50px;
   top: 2px;
-  background: #eb7623ff;
+  background: #0099cc;
 
   /* background-color: rgb(234, 185, 39); */
   border-radius: 5px;
@@ -57,5 +57,5 @@
 }
 
 .products a:focus {
-  background-color: rgb(216, 91, 24);
+  background-color: #0099cc;
 }
