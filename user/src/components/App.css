@@ -64,10 +64,11 @@ a {
 
 .colu {
   float: left;
-  width: 80%;
+  width: 100%;
   padding: 0 10px;
   height: 20px;
-  align-items: center;
+  margin: 5px
+  
 }
 
 .productsNav a {
@@ -100,4 +101,21 @@ h {
   text-align: left;
   padding: 10px;
   max-width: 80vw !important;
+}
+
+.Admin a:focus {
+  background-color: #0099cc;
+}
+.AdminNav a {
+  width: 260px;
+  height: 50px;
+  top: 2px;
+  background: #33b5e5;
+  font-size: 2vw;
+  /* background-color: rgb(234, 185, 39); */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e4dddd;
 }
