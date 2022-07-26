@@ -56,6 +56,11 @@
   margin-top: 0;
 }
 
-.products a:focus {
-  background-color: #0099cc;
+.Admin a:focus {
+  background-color: #045e7c;
+}
+
+fa-bell{
+  font-size:50px;
+  color:blue
 }

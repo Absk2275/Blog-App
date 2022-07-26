@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { isAuthenticated, logout } from "../helper/auth";
 import withRouter from "./withRouter";
-import Komplaint from "./Komplaint.png";
+import logo from "./logo.png";
 
 const Header = ({ navigate }) => {
   const handleLogout = (evt) => {
@@ -15,8 +15,9 @@ const Header = ({ navigate }) => {
   const showNavigation = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
       <Link to="/" className="navbar-brand">
-        {/* <img src={Komplaint} alt="logo" height={33} width={33} /> */}
-        KOMPLAINT
+        <img src={logo} className="img-circle" alt="logo" height={50} width={50}/>
+        <br></br>
+      <h6><b>CRMS</b></h6>
       </Link>
 
       <button
@@ -79,8 +80,26 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 2 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/department/dashboard" className="nav-link">
-                  <i className="fas fa-home"></i> Department Dashboard
+                <Link to="/waterdepartment/dashboard/Pending" className="nav-link">
+                  <i className="fas fa-home"></i>Water Department Dashboard
+                </Link>
+              </li>
+            </Fragment>
+          )}
+          {isAuthenticated() && isAuthenticated().role === 3 && (
+            <Fragment>
+              <li className="nav-item active">
+                <Link to="/powerdepartment/dashboard/Pending" className="nav-link">
+                  <i className="fas fa-home"></i> Power Department Dashboard
+                </Link>
+              </li>
+            </Fragment>
+          )}
+          {isAuthenticated() && isAuthenticated().role === 4 && (
+            <Fragment>
+              <li className="nav-item active">
+                <Link to="/sewagedepartment/dashboard/Pending" className="nav-link">
+                  <i className="fas fa-home"></i> Sewage Department Dashboard
                 </Link>
               </li>
             </Fragment>

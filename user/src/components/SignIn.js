@@ -65,8 +65,17 @@ const Signin = () => {
             navigate("/admin/dashboard/Pending");
           } else if (isAuthenticated() && isAuthenticated().role === 2) {
             console.log("Redirecting to Department dashboard");
-            navigate("/department/dashboard");
-          } else {
+            navigate("/waterdepartment/dashboard/Pending");
+          }
+          else if (isAuthenticated() && isAuthenticated().role === 3) {
+            console.log("Redirecting to Department dashboard");
+            navigate("/powerdepartment/dashboard/Pending");
+          } 
+          else if (isAuthenticated() && isAuthenticated().role === 4) {
+            console.log("Redirecting to Department dashboard");
+            navigate("/sewagedepartment/dashboard/Pending");
+          } 
+           else {
             console.log("Redirecting to user dashboard");
             navigate("/products/add");
           }

@@ -61,7 +61,7 @@ const stateData = [
   },
   {
     name: "Soreng",
-    blocks: ["Soreng"],
+    blocks: ["","Soreng"],
   },
 ];
 

@@ -86,6 +86,12 @@ const ListProducts = () => {
     setOpen(true);
   }
 
+
+  function getDate(isoDate){
+    var date = isoDate.substring(0, 10);
+  
+return date;
+  }
   return (
     <div class="row justify-content-evenly mt-2">
       <Dialog
@@ -115,9 +121,11 @@ const ListProducts = () => {
                     {id.firstName} {id.lastName}
                   </h>
                 </p>
+                
                 <p class="m-0">
                   <i class="fa-solid fa-location-dot"></i> {id.address}
                 </p>
+                
                 <p class="m-0">
                   <b>District: </b> {id.district}
                 </p>
@@ -127,6 +135,7 @@ const ListProducts = () => {
                 <p class="m-0">
                   <b>Pincode: </b> {id.pincode}
                 </p>
+                
                 <container>
                   <Button class="btn btn-primary  btn-sm" disabled>
                     <i class="fa-solid fa-envelope"></i> {id.email}
@@ -143,17 +152,21 @@ const ListProducts = () => {
                 <h4>
                   <b>Complaint Details</b>
                 </h4>
+                
                 <p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
                     Complaint ID: {id.uid}
                   </Button>
+                  
                   <p>
                     <b>Department: </b> {id.department}
                   </p>
+                  
                   <p class="m-0">
                     <i class="fa-solid fa-comment-dots"></i>
                     <b> Description :</b> {id.description}
+                    
                   </p>
                 </p>
               </div>
@@ -162,19 +175,21 @@ const ListProducts = () => {
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                <p class="m-0">
+                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
-                    Complaint ID: {id.uid}
+                    <b>Employee ID: </b> {id.empID}
                   </Button>
                   <p>
-                    <b>Department: </b> {id.department}
+                    <b>Employee Name: </b> {id.empname}
+                     
                   </p>
                   <p class="m-0">
-                    <i class="fa-solid fa-comment-dots"></i>
-                    <b> Description :</b> {id.description}
+                  <i class="fa-solid fa-phone"></i>
+                    <b> Employee Phone Number :</b> {id.empNo}
                   </p>
-                </p>
+                </p>)}
+                
               </div>
             </form>
           </DialogContentText>
@@ -185,7 +200,7 @@ const ListProducts = () => {
           mycomp.map((pro) => {
             return (
               <div onClick={() => handleClickOpen()}>
-                <div class="card m-3 p-0" onClick={() => setId(pro)}>
+                <div class="card m-3 p-0 " onClick={() => setId(pro)}>
                   <nav className="navbar card-header ">
                     <h5>{pro.department}</h5>
                     <button className="btn btn-primary my-2 my-sm-0 ms-auto disabled">
@@ -195,11 +210,12 @@ const ListProducts = () => {
 
                   <div class="card-body">
                     <h5 class="card-title">
-                      {pro.firstName} {pro.lastName}
+                    <i class="fa-solid fa-file-signature"></i> {pro.firstName} {pro.lastName}
                     </h5>
 
-                    <p>{pro.address}</p>
-                    <p>{pro.phoneNo}</p>
+                   <p> <i class="fa-solid fa-location-dot"></i> {pro.address}</p>
+                    <p><i class="fa-solid fa-calendar"></i> { getDate(pro.createdAt)}</p>
+                    <p><i class="fa-solid fa-phone"></i> {pro.phoneNo}</p>
 
                     <button class="btn btn-primary">view</button>
                   </div>
@@ -208,7 +224,18 @@ const ListProducts = () => {
             );
           })
         ) : (
-          <p>No Compalint posted yet</p>
+          <div class="d-flex align-items-center justify-content-center vh-90">
+            <div class="text-center">
+              <h1 class="display-1 fw-bold text-primary">Opps!</h1>
+              <p class="fs-3"> You have not posted any complaints.</p>
+              <p class="lead">
+                Please post your complaint to view your complaints.
+              </p>
+              <Link to="/" class="btn btn-primary">
+                Go Home
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </div>

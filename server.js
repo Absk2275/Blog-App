@@ -41,7 +41,7 @@ app.route("/postcomp/:postcompID").get((req, res) => {
 // updating complaint by ID
 app.route("/postcomp/:postcompID").put((req, res) => {
 	PostComp.findOneAndUpdate(
-		{ _id: req.params.postcompID },
+		{ uid: req.params.postcompID },
 		req.body,
 		{ new: true, useFindAndModify: false },
 		(err, postcomp) => {

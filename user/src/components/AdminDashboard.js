@@ -8,7 +8,7 @@ const AdminDashboard = () => {
       <div className="AdminNav">
         <Link to="Pending">Pending</Link>
 
-        <Link to="InProgress">Forwaded</Link>
+        <Link to="InProgress">Forwarded</Link>
 
         <Link to="Resolved">Rejected</Link>
       </div>

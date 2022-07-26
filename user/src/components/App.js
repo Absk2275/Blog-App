@@ -7,7 +7,21 @@ import Home from "./Home";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
-import DepartmentDashboard from "./DepartmentDashboard";
+import WaterDepartmentDashboard from "./WaterDepartmentDashboard";
+import PowerDepartmentDashboard from "./PowerDepartmentDashboard";
+import SewageDepartmentDashboard from "./SewageDepartmentDashboard";
+
+import Inprogress1 from "./WaterDepartmentComponents/Inprogress";
+import Pending1 from "./WaterDepartmentComponents/Pending";
+import Resolved1 from "./WaterDepartmentComponents/Resolved";
+
+import Resolved2 from "./PowerDepartmentComponents/Resolved";
+import Inprogress2 from "./PowerDepartmentComponents/Inprogress";
+import Pending2 from "./PowerDepartmentComponents/Pending";
+
+import Resolved3 from "./SewageDepartmentComponents/Resolved";
+import Inprogress3 from "./SewageDepartmentComponents/Inprogress";
+import Pending3 from "./SewageDepartmentComponents/Pending";
 
 import Products from "./products/Products";
 import Form from "./products/AddProduct";
@@ -20,6 +34,7 @@ import Inprogress from "./AdminComponents/Inprogress";
 import Pending from "./AdminComponents/Pending";
 import DataDisplay from "./AdminComponents/DataDisplay";
 import Resolved from "./AdminComponents/Resolved";
+
 
 const App = () => (
   <BrowserRouter>
@@ -45,12 +60,25 @@ const App = () => (
           <Route path="Resolved" element={<Resolved />} />
           <Route path=":uid" element={<DataDisplay />} />
         </Route>
+        
+        <Route path="/waterdepartment/dashboard" element={<WaterDepartmentDashboard />}>
+          <Route path="Pending" element={<Pending1 />} />
+          <Route path="Inprogress" element={<Inprogress1 />} />
+          <Route path="Resolved" element={<Resolved1 />} />
+        </Route>
 
-        <Route
-          exact
-          path="/department/dashboard"
-          element={<DepartmentDashboard />}
-        />
+        <Route path="/powerdepartment/dashboard" element={<PowerDepartmentDashboard />}>
+          <Route path="Pending" element={<Pending2 />} />
+          <Route path="Inprogress" element={<Inprogress2 />} />
+          <Route path="Resolved" element={<Resolved2 />} />
+        </Route>
+
+        <Route path="/sewagedepartment/dashboard" element={<SewageDepartmentDashboard />}>
+          <Route path="Pending" element={<Pending3 />} />
+          <Route path="Inprogress" element={<Inprogress3 />} />
+          <Route path="Resolved" element={<Resolved3 />} />
+        </Route>
+        
       </Routes>
     </main>
   </BrowserRouter>

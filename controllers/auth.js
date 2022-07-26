@@ -109,7 +109,15 @@ exports.postController = async(req,res) =>{
     newPost.block =block,
     newPost.pincode= pincode,
     newPost.department=department,
-    newPost.description =description 
+    newPost.description =description,
+    newPost.adminread = 0,
+    newPost.adminstatus =0,
+    newPost.deptread =0,
+    newPost.deptstatus =0,
+    newPost.empname="",
+    newPost.empID=0,
+    newPost.empNo=0,
+    
 
     await newPost.save();
     res.json({
