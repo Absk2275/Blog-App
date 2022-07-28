@@ -15,9 +15,17 @@ const Header = ({ navigate }) => {
   const showNavigation = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary">
       <Link to="/" className="navbar-brand">
-        <img src={logo} className="img-circle" alt="logo" height={50} width={50}/>
+        <img
+          src={logo}
+          className="img-circle"
+          alt="logo"
+          height={50}
+          width={50}
+        />
         <br></br>
-      <h6><b>CRMS</b></h6>
+        <h6>
+          <b>CRMS</b>
+        </h6>
       </Link>
 
       <button
@@ -37,18 +45,18 @@ const Header = ({ navigate }) => {
           {!isAuthenticated() && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/" className="nav-link">
-                  <i className="fas fa-home"></i> Home
+                <Link to="/" className="nav-link active text-light">
+                  <i className="fas fa-home"></i> <b>Home</b>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="./SignIn" className="nav-link">
-                  <i className="fas fa-edit"></i> SignIn
+                <Link to="./SignIn" className="nav-link active text-light">
+                  <i className="fas fa-edit"></i> <b>Login</b>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="./SignUp" className="nav-link">
-                  <i className="fas fa-sign-in-alt"></i> SignUp
+                <Link to="./SignUp" className="nav-link active text-light">
+                  <i className="fas fa-sign-in-alt"></i> <b>Register</b>
                 </Link>
               </li>
             </Fragment>
@@ -57,7 +65,7 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 0 && (
             <Fragment>
               <li className="nav-item active text-light">
-                <Link to="/products/add" className="nav-link">
+                <Link to="/products/add" className="nav-link active text-light">
                   <p className="text-light mt-3 p-0">
                     <i className="fas fa-home"></i>
                     <b>Dashboard</b>
@@ -70,8 +78,11 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 1 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="admin/dashboard/Pending" className="nav-link">
-                  <i className="fas fa-home"></i> Admin Dashboard
+                <Link
+                  to="admin/dashboard/Pending"
+                  className="nav-link active text-light"
+                >
+                  <i className="fas fa-home"></i> <b>Hello Admin</b>
                 </Link>
               </li>
             </Fragment>
@@ -80,8 +91,12 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 2 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/waterdepartment/dashboard/Pending" className="nav-link">
-                  <i className="fas fa-home"></i>Water Department Dashboard
+                <Link
+                  to="/waterdepartment/dashboard/Pending"
+                  className="nav-link active text-light"
+                >
+                  <i className="fas fa-home"></i>
+                  <b>Water Department Dashboard</b>
                 </Link>
               </li>
             </Fragment>
@@ -89,8 +104,12 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 3 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/powerdepartment/dashboard/Pending" className="nav-link">
-                  <i className="fas fa-home"></i> Power Department Dashboard
+                <Link
+                  to="/powerdepartment/dashboard/Pending"
+                  className="nav-link active text-light"
+                >
+                  <i className="fas fa-home"></i>
+                  <b> Power Department </b>
                 </Link>
               </li>
             </Fragment>
@@ -98,26 +117,35 @@ const Header = ({ navigate }) => {
           {isAuthenticated() && isAuthenticated().role === 4 && (
             <Fragment>
               <li className="nav-item active">
-                <Link to="/sewagedepartment/dashboard/Pending" className="nav-link">
-                  <i className="fas fa-home"></i> Sewage Department Dashboard
+                <Link
+                  to="/sewagedepartment/dashboard/Pending"
+                  className="nav-link"
+                >
+                  <i className="fas fa-home"></i> <b>Sewage Department</b>
                 </Link>
               </li>
             </Fragment>
           )}
+        </ul>
 
-          {isAuthenticated() && (
+        {isAuthenticated() && (
+          <ul class="nav navbar-nav navbar-right ml-auto">
             <Fragment>
-              <li className="nav-item">
-                <Link to="/signin" className="nav-link" onClick={handleLogout}>
-                  <button className="btn btn-warning">
+              <li class="nav navbar-nav navbar-right">
+                <Link
+                  to="/signin"
+                  className="nav-link ml-auto"
+                  onClick={handleLogout}
+                >
+                  <button className="btn btn-warning ml-auto">
                     <i className="fas fa-sign-out-alt"></i>
                     Logout
                   </button>
                 </Link>
               </li>
             </Fragment>
-          )}
-        </ul>
+          </ul>
+        )}
       </div>
     </nav>
   );

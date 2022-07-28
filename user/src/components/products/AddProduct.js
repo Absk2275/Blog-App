@@ -61,7 +61,7 @@ const stateData = [
   },
   {
     name: "Soreng",
-    blocks: ["","Soreng"],
+    blocks: ["", "Soreng"],
   },
 ];
 
@@ -375,7 +375,7 @@ const Form = () => {
           <div className="content">{postComp()}</div>
         </div>
       </div>
-      {JSON.stringify(formData)}
+      {/* {JSON.stringify(formData)} */}
     </div>
   );
 };

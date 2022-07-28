@@ -147,7 +147,7 @@ const Pending3 = () => {
   console.log(id)
   setId((id) => ({ ...id, deptstatus:value }));
   console.log(id.adminstatus);
-  window.location.reload();
+  // window.location.reload();
   }
 
   const handleInputChange = (event) => {

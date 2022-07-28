@@ -55,110 +55,90 @@ const Pending = () => {
   // console.log(mycomp);
 
   // const [currentContact, setCurrentContact] = useState({});
-	const [id, setId] = useState("");
+  const [id, setId] = useState("");
 
-	// const getContactById = async (id) => {
-	// 	const config = {
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 	};
-	// 	try {
-	// 		const res = await axios.get(`http://localhost:5000/postcomp/${id}`, config);
-	// 		setCurrentContact(res.data);
-	// 	} catch (err) {
-	// 		console.error("error", err);
-	// 	}
-	// };
+  // const getContactById = async (id) => {
+  // 	const config = {
+  // 		headers: {
+  // 			"Content-Type": "application/json",
+  // 		},
+  // 	};
+  // 	try {
+  // 		const res = await axios.get(`http://localhost:5000/postcomp/${id}`, config);
+  // 		setCurrentContact(res.data);
+  // 	} catch (err) {
+  // 		console.error("error", err);
+  // 	}
+  // };
 
-	// useEffect(() => {
-	// 	getContactById(id);
-	// }, [id]);
+  // useEffect(() => {
+  // 	getContactById(id);
+  // }, [id]);
   const [value, setvalue] = useState("All");
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
-  function notupdate(){
+  function notupdate() {
     setOpen1(false);
-    setId((id) => ({ ...id, adminstatus:0 }));
+    setId((id) => ({ ...id, adminstatus: 0 }));
   }
-  const update= async()=>{
+  const update = async () => {
     const config = {
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-    
-		try {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
       console.log(id);
-			await axios.put(
-				`http://localhost:5000/postcomp/${id.uid}`,
-				id,
-				config
-			);
-      
-		
-		} 
-    catch (err) {
-			console.error("error", err);
-		}
-    setOpen1(false);  
-  }
+      await axios.put(`http://localhost:5000/postcomp/${id.uid}`, id, config);
+    } catch (err) {
+      console.error("error", err);
+    }
+    setOpen1(false);
+  };
 
-
-  const handleClose= async(pro)=> {
+  const handleClose = async (pro) => {
     setOpen(false);
     const config = {
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-    
-		try {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
       console.log(id);
-			await axios.put(
-				`http://localhost:5000/postcomp/${pro.uid}`,
-				id,
-				config
-			);
-      
-      setId({id});
-		
-		} 
-    catch (err) {
-			console.error("error", err);
-		}
-    
-  }
+      await axios.put(`http://localhost:5000/postcomp/${pro.uid}`, id, config);
 
-  const handleEdit = async (pro) =>{
-		setOpen(true);
-    setId((id) => ({ ...id, adminread:1 }));
+      setId({ id });
+    } catch (err) {
+      console.error("error", err);
+    }
+  };
 
-	};
-  const confirm =async(value)=>{
-  setOpen1(true);
-  setId((id) => ({ ...id, adminstatus:value }));
-  console.log(id.adminstatus);
-  window.location.reload();
- 
-  }
+  const handleEdit = async (pro) => {
+    setOpen(true);
+    setId((id) => ({ ...id, adminread: 1 }));
+  };
+  const confirm = async (value) => {
+    setOpen1(true);
+    setId((id) => ({ ...id, adminstatus: value }));
+    console.log(id.adminstatus);
+    // window.location.reload();
+  };
   function selected() {
-    var subjectIdNode = document.getElementById('department');
-    
+    var subjectIdNode = document.getElementById("department");
+
     setvalue(subjectIdNode.options[subjectIdNode.selectedIndex].text);
     console.log("The selected value=" + value);
-    
   }
   const mycomp1 = mycomp.filter((obj) => {
-    if(value==="All")
-    {
+    if (value === "All") {
       return obj;
-    }
-    else{
-    return obj.department === value;
+    } else {
+      return obj.department === value;
     }
   });
-	
+
   return (
     <div class="row justify-content-evenly mt-2">
       <Dialog
@@ -167,24 +147,18 @@ const Pending = () => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        
-        <Dialog
-      open={open1}
-      
-      aria-labelledby="form-dialog-title">
-        <DialogContent>
-          <DialogContentText component={"div"} style={{ textAlign: "center" }}>
-                 <p>Do you want to confirm ?</p>
-                  <Button
-                  onClick={() => update()}
-                >Confirm</Button>
-                <Button onClick={notupdate}> Close</Button>
-
-          </DialogContentText>
+        <Dialog open={open1} aria-labelledby="form-dialog-title">
+          <DialogContent>
+            <DialogContentText
+              component={"div"}
+              style={{ textAlign: "center" }}
+            >
+              <p>Do you want to confirm ?</p>
+              <Button onClick={() => update()}>Confirm</Button>
+              <Button onClick={notupdate}> Close</Button>
+            </DialogContentText>
           </DialogContent>
-          </Dialog>
-
-
+        </Dialog>
 
         <DialogContent>
           <DialogContentText component={"div"} style={{ textAlign: "center" }}>
@@ -268,55 +242,52 @@ const Pending = () => {
                   </p>
                 </p>
               </div>
-              <div>
-              </div>
-              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>Forward</Button>
-              <Button class="btn btn-danger m-2" onClick={() => confirm(2)}>Reject</Button>
+              <div></div>
+              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>
+                Forward
+              </Button>
+              <Button class="btn btn-danger m-2" onClick={() => confirm(2)}>
+                Reject
+              </Button>
             </form>
           </DialogContentText>
         </DialogContent>
       </Dialog>
       <div className="colu">
-      <div className="input-box">
-            <span className="details">Department </span>
-            <select
-              name="department"
-              id="department"
-              onChange={selected}
-            
-            >
-              <option value="All ">All</option>
-              <option value="Power Department">Power Department</option>
-              <option value="Public Health and Engineering Department -Water">
-                Public Health and Engineering Department -Water
-              </option>
-              <option value="Public Health and Engineering Department - Sewage">
-                Public Health and Engineering Department - Sewage
-              </option>
-            </select>
-          </div>
-  
+        <div className="input-box">
+          <span className="details">Department </span>
+          <select name="department" id="department" onChange={selected}>
+            <option value="All ">All</option>
+            <option value="Power Department">Power Department</option>
+            <option value="Public Health and Engineering Department -Water">
+              Public Health and Engineering Department -Water
+            </option>
+            <option value="Public Health and Engineering Department - Sewage">
+              Public Health and Engineering Department - Sewage
+            </option>
+          </select>
+        </div>
+
         {mycomp1.length > 0 ? (
           mycomp1.map((pro) => {
             return (
               <div onClick={() => handleEdit(pro)}>
                 <div class="card m-3 p-0" onClick={() => setId(pro)}>
                   <nav className="navbar card-header ">
-                  
                     <h5>{pro.department}</h5>
                     <button className="btn btn-primary my-2 my-sm-0 ms-auto p-1 disabled">
-                      Complaint ID: {pro.uid} 
+                      Complaint ID: {pro.uid}
                     </button>
-                    {
-                      pro.adminread === 0 ?(<button className="btn btn-warning   ms-auto p-1 m-0 disabled">
-                      <i class="fa-solid fa-bell fa-shake"></i>
-                        </button>) : <button className="btn    ms-auto p-1 m-0 disabled">
-                  <i class="fa-solid fa-bell "></i>
-                  
-                    </button>
-                    }
-                    
-                  </nav> 
+                    {pro.adminread === 0 ? (
+                      <button className="btn btn-warning   ms-auto p-1 m-0 disabled">
+                        <i class="fa-solid fa-bell fa-shake"></i>
+                      </button>
+                    ) : (
+                      <button className="btn    ms-auto p-1 m-0 disabled">
+                        <i class="fa-solid fa-bell "></i>
+                      </button>
+                    )}
+                  </nav>
 
                   <div class="card-body">
                     <h5 class="card-title">
@@ -326,7 +297,7 @@ const Pending = () => {
                     <p>{pro.address}</p>
                     <p>{pro.phoneNo}</p>
 
-                    <button class="btn btn-primary" >view</button>
+                    <button class="btn btn-primary">view</button>
                   </div>
                 </div>
               </div>
@@ -338,6 +309,6 @@ const Pending = () => {
       </div>
     </div>
   );
-        }
+};
 
 export default Pending;

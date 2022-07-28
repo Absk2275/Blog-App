@@ -30,12 +30,14 @@ const Inprogress3 = () => {
   useEffect(() => {
     getAllContacts();
   }, []);
-  
+
   const allcomp = contacts.filter((obj) => {
     return obj.adminstatus === 1;
   });
   const mydepts = allcomp.filter((obj) => {
-    return obj.department === "Public Health and Engineering Department - Sewage";
+    return (
+      obj.department === "Public Health and Engineering Department - Sewage"
+    );
   });
   const mycomp = mydepts.filter((obj) => {
     return obj.deptstatus === 1;
@@ -61,97 +63,81 @@ const Inprogress3 = () => {
   // console.log(mycomp);
 
   // const [currentContact, setCurrentContact] = useState({});
-	const [id, setId] = useState("");
+  const [id, setId] = useState("");
 
-	// const getContactById = async (id) => {
-	// 	const config = {
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 	};
-	// 	try {
-	// 		const res = await axios.get(`http://localhost:5000/postcomp/${id}`, config);
-	// 		setCurrentContact(res.data);
-	// 	} catch (err) {
-	// 		console.error("error", err);
-	// 	}
-	// };
+  // const getContactById = async (id) => {
+  // 	const config = {
+  // 		headers: {
+  // 			"Content-Type": "application/json",
+  // 		},
+  // 	};
+  // 	try {
+  // 		const res = await axios.get(`http://localhost:5000/postcomp/${id}`, config);
+  // 		setCurrentContact(res.data);
+  // 	} catch (err) {
+  // 		console.error("error", err);
+  // 	}
+  // };
 
-	// useEffect(() => {
-	// 	getContactById(id);
-	// }, [id]);
+  // useEffect(() => {
+  // 	getContactById(id);
+  // }, [id]);
   const [value, setvalue] = useState("All");
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
-  function notupdate(){
+  function notupdate() {
     setOpen1(false);
-    
   }
-  const update= async()=>{
+  const update = async () => {
     const config = {
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-    
-		try {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
       console.log(id);
-			await axios.put(
-				`http://localhost:5000/postcomp/${id.uid}`,
-				id,
-				config
-			);
-      
-		
-		} 
-    catch (err) {
-			console.error("error", err);
-		}
-    setOpen1(false);  
-  }
+      await axios.put(`http://localhost:5000/postcomp/${id.uid}`, id, config);
+    } catch (err) {
+      console.error("error", err);
+    }
+    setOpen1(false);
+  };
 
-
-  const handleClose= async(pro)=> {
+  const handleClose = async (pro) => {
     setOpen(false);
-    
-  }
+  };
 
-  const handleEdit = async (pro) =>{
-		setOpen(true);
-    
-    
-
-	};
-  const confirm =async(value)=>{
-  setOpen1(true);
-  console.log(id)
-  setId((id) => ({ ...id, deptstatus:value }));
-  console.log(id.deptstatus);
-  window.location.reload();
-  }
+  const handleEdit = async (pro) => {
+    setOpen(true);
+  };
+  const confirm = async (value) => {
+    setOpen1(true);
+    console.log(id);
+    setId((id) => ({ ...id, deptstatus: value }));
+    console.log(id.deptstatus);
+    // window.location.reload();
+  };
   function selected() {
-    var subjectIdNode = document.getElementById('district');
-    
+    var subjectIdNode = document.getElementById("district");
+
     setvalue(subjectIdNode.options[subjectIdNode.selectedIndex].text);
     console.log("The selected value=" + value);
-    
   }
   const mycomp1 = mycomp.filter((obj) => {
-    if(value==="All")
-    {
+    if (value === "All") {
       return obj;
-    }
-    else{
-    return obj.district === value;
+    } else {
+      return obj.district === value;
     }
   });
-  
-  function getDate(isoDate){
+
+  function getDate(isoDate) {
     var date = isoDate.substring(0, 10);
-  
-return date;
+
+    return date;
   }
-	
+
   return (
     <div class="row justify-content-evenly mt-2">
       <Dialog
@@ -160,25 +146,18 @@ return date;
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        
-        <Dialog
-      open={open1}
-      
-      aria-labelledby="form-dialog-title">
-        <DialogContent>
-          <DialogContentText component={"div"} style={{ textAlign: "center" }}>
-          
-                 <p>Do you want to confirm ?</p>
-                  <Button
-                  onClick={() => update()}
-                >Confirm</Button>
-                <Button onClick={notupdate}> Close</Button>
-
-          </DialogContentText>
+        <Dialog open={open1} aria-labelledby="form-dialog-title">
+          <DialogContent>
+            <DialogContentText
+              component={"div"}
+              style={{ textAlign: "center" }}
+            >
+              <p>Do you want to confirm ?</p>
+              <Button onClick={() => update()}>Confirm</Button>
+              <Button onClick={notupdate}> Close</Button>
+            </DialogContentText>
           </DialogContent>
-          </Dialog>
-
-
+        </Dialog>
 
         <DialogContent>
           <DialogContentText component={"div"} style={{ textAlign: "center" }}>
@@ -248,90 +227,87 @@ return date;
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
-                  <Button class="btn btn-primary  btn-sm m-1" disabled>
-                    {" "}
-                    <b>Employee ID: </b> {id.empID}
-                  </Button>
-                  <p>
-                    <b>Employee Name: </b> {id.empname}
-                     
-                  </p>
+                {id.empname === "" ? (
+                  <p>Not yet assisgned</p>
+                ) : (
                   <p class="m-0">
-                  <i class="fa-solid fa-phone"></i>
-                    <b> Employee Phone Number :</b> {id.empNo}
+                    <Button class="btn btn-primary  btn-sm m-1" disabled>
+                      {" "}
+                      <b>Employee ID: </b> {id.empID}
+                    </Button>
+                    <p>
+                      <b>Employee Name: </b> {id.empname}
+                    </p>
+                    <p class="m-0">
+                      <i class="fa-solid fa-phone"></i>
+                      <b> Employee Phone Number :</b> {id.empNo}
+                    </p>
                   </p>
-                </p>)}
+                )}
               </div>
-              <div>
-              </div>
-              
-              <Button class="btn btn-success m-2" onClick={() => confirm(2)}>Resolved</Button>
+              <div></div>
+
+              <Button class="btn btn-success m-2" onClick={() => confirm(2)}>
+                Resolved
+              </Button>
             </form>
           </DialogContentText>
         </DialogContent>
       </Dialog>
-      
+
       <div className="colu">
-      <div className="input-box">
-            <span className="details">District </span>
-            <select
-              name="district"
-              id="district"
-              onChange={selected}
-            
-            >
-              <option value="All ">All</option>
-              <option value="Gangtok">Gangtok</option>
-              <option value="Gyalshing">
-              Gyalshing
-              </option>
-              <option value="Mangan">
-              Mangan
-              </option>
-              <option value="Namchi">
-              Namchi
-              </option>
-              <option value="Pakyong">
-              Pakyong
-              </option>
-              <option value="Soreng">
-              Soreng
-              </option>
-            </select>
-          </div>
+        <div className="input-box">
+          <span className="details">District </span>
+          <select name="district" id="district" onChange={selected}>
+            <option value="All ">All</option>
+            <option value="Gangtok">Gangtok</option>
+            <option value="Gyalshing">Gyalshing</option>
+            <option value="Mangan">Mangan</option>
+            <option value="Namchi">Namchi</option>
+            <option value="Pakyong">Pakyong</option>
+            <option value="Soreng">Soreng</option>
+          </select>
+        </div>
         {mycomp1.length > 0 ? (
           mycomp1.map((pro) => {
             return (
               <div onClick={() => handleEdit(pro)}>
                 <div class="card m-3 p-0" onClick={() => setId(pro)}>
                   <nav className="navbar card-header ">
-                  
                     <h5>{pro.department}</h5>
                     <button className="btn btn-primary my-2 my-sm-0 ms-auto p-1 disabled">
-                      Complaint ID: {pro.uid} 
+                      Complaint ID: {pro.uid}
                     </button>
-                    {
-                      pro.deptread === 0 ?(<button className="btn btn-warning   ms-auto p-1 m-0 disabled">
-                      <i class="fa-solid fa-bell fa-shake"></i>
-                        </button>) : <button className="btn    ms-auto p-1 m-0 disabled">
-                  <i class="fa-solid fa-bell "></i>
-                  
-                    </button>
-                    }
-                    
-                  </nav> 
+                    {pro.deptread === 0 ? (
+                      <button className="btn btn-warning   ms-auto p-1 m-0 disabled">
+                        <i class="fa-solid fa-bell fa-shake"></i>
+                      </button>
+                    ) : (
+                      <button className="btn    ms-auto p-1 m-0 disabled">
+                        <i class="fa-solid fa-bell "></i>
+                      </button>
+                    )}
+                  </nav>
 
                   <div class="card-body">
                     <h5 class="card-title">
-                    <i class="fa-solid fa-file-signature"></i> {pro.firstName} {pro.lastName}
+                      <i class="fa-solid fa-file-signature"></i> {pro.firstName}{" "}
+                      {pro.lastName}
                     </h5>
 
-                   <p> <i class="fa-solid fa-location-dot"></i> {pro.address}</p>
-                    <p><i class="fa-solid fa-calendar"></i> { getDate(pro.createdAt)}</p>
-                    <p><i class="fa-solid fa-phone"></i> {pro.phoneNo}</p>
+                    <p>
+                      {" "}
+                      <i class="fa-solid fa-location-dot"></i> {pro.address}
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-calendar"></i>{" "}
+                      {getDate(pro.createdAt)}
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-phone"></i> {pro.phoneNo}
+                    </p>
 
-                    <button class="btn btn-primary" >view</button>
+                    <button class="btn btn-primary">view</button>
                   </div>
                 </div>
               </div>
@@ -343,6 +319,6 @@ return date;
       </div>
     </div>
   );
-        }
+};
 
 export default Inprogress3;
