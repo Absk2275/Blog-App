@@ -5,6 +5,7 @@ import isEmail from "validator/lib/isEmail";
 import { showErrorMsg, showSuccessMsg } from "../../helper/message";
 import { showLoading } from "../../helper/loading";
 import loaclemail from "../../helper/localemail";
+import Footer from "../footer";
 
 import { postcomp } from "../../api/auth";
 
@@ -376,6 +377,7 @@ const Form = () => {
         </div>
       </div>
       {/* {JSON.stringify(formData)} */}
+      <Footer />
     </div>
   );
 };

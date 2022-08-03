@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setAuthentication, isAuthenticated } from "../helper/auth";
 import { showErrorMsg } from "../helper/message";
 import { showLoading } from "../helper/loading";
+import Footer from "./footer";
 // import isEmail from "validator/lib/isEmail";
 
 import isEmpty from "validator/lib/isEmpty";
@@ -66,16 +67,13 @@ const Signin = () => {
           } else if (isAuthenticated() && isAuthenticated().role === 2) {
             console.log("Redirecting to Department dashboard");
             navigate("/waterdepartment/dashboard/Pending");
-          }
-          else if (isAuthenticated() && isAuthenticated().role === 3) {
+          } else if (isAuthenticated() && isAuthenticated().role === 3) {
             console.log("Redirecting to Department dashboard");
             navigate("/powerdepartment/dashboard/Pending");
-          } 
-          else if (isAuthenticated() && isAuthenticated().role === 4) {
+          } else if (isAuthenticated() && isAuthenticated().role === 4) {
             console.log("Redirecting to Department dashboard");
             navigate("/sewagedepartment/dashboard/Pending");
-          } 
-           else {
+          } else {
             console.log("Redirecting to user dashboard");
             navigate("/products/add");
           }
@@ -148,6 +146,7 @@ const Signin = () => {
           {ShowSignInForm()}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

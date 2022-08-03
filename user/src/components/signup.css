@@ -17,7 +17,7 @@
   background-size: cover;
 }
 
-.container {
+.containe {
   height: auto;
   width: 400px;
   max-width: 400px;
@@ -28,7 +28,7 @@
   background: #ffffff;
 }
 
-.container,
+.containe,
 .form__input,
 .form__button {
   font: 500 1rem "Quicksand", sans-serif;

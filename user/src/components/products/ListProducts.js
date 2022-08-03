@@ -10,6 +10,8 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 
+import Footer from "../footer";
+
 const ListProducts = () => {
   // const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
@@ -86,11 +88,10 @@ const ListProducts = () => {
     setOpen(true);
   }
 
-
-  function getDate(isoDate){
+  function getDate(isoDate) {
     var date = isoDate.substring(0, 10);
-  
-return date;
+
+    return date;
   }
   return (
     <div class="row justify-content-evenly mt-2">
@@ -121,11 +122,11 @@ return date;
                     {id.firstName} {id.lastName}
                   </h>
                 </p>
-                
+
                 <p class="m-0">
                   <i class="fa-solid fa-location-dot"></i> {id.address}
                 </p>
-                
+
                 <p class="m-0">
                   <b>District: </b> {id.district}
                 </p>
@@ -135,7 +136,7 @@ return date;
                 <p class="m-0">
                   <b>Pincode: </b> {id.pincode}
                 </p>
-                
+
                 <container>
                   <Button class="btn btn-primary  btn-sm" disabled>
                     <i class="fa-solid fa-envelope"></i> {id.email}
@@ -152,21 +153,20 @@ return date;
                 <h4>
                   <b>Complaint Details</b>
                 </h4>
-                
+
                 <p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
                     Complaint ID: {id.uid}
                   </Button>
-                  
+
                   <p>
                     <b>Department: </b> {id.department}
                   </p>
-                  
+
                   <p class="m-0">
                     <i class="fa-solid fa-comment-dots"></i>
                     <b> Description :</b> {id.description}
-                    
                   </p>
                 </p>
               </div>
@@ -175,26 +175,29 @@ return date;
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
-                  <Button class="btn btn-primary  btn-sm m-1" disabled>
-                    {" "}
-                    <b>Employee ID: </b> {id.empID}
-                  </Button>
-                  <p>
-                    <b>Employee Name: </b> {id.empname}
-                     
-                  </p>
+                {id.empname === "" ? (
+                  <p>Not yet assisgned</p>
+                ) : (
                   <p class="m-0">
-                  <i class="fa-solid fa-phone"></i>
-                    <b> Employee Phone Number :</b> {id.empNo}
+                    <Button class="btn btn-primary  btn-sm m-1" disabled>
+                      {" "}
+                      <b>Employee ID: </b> {id.empID}
+                    </Button>
+                    <p>
+                      <b>Employee Name: </b> {id.empname}
+                    </p>
+                    <p class="m-0">
+                      <i class="fa-solid fa-phone"></i>
+                      <b> Employee Phone Number :</b> {id.empNo}
+                    </p>
                   </p>
-                </p>)}
-                
+                )}
               </div>
             </form>
           </DialogContentText>
         </DialogContent>
       </Dialog>
+
       <div className="colu">
         {mycomp.length > 0 ? (
           mycomp.map((pro) => {
@@ -210,12 +213,21 @@ return date;
 
                   <div class="card-body">
                     <h5 class="card-title">
-                    <i class="fa-solid fa-file-signature"></i> {pro.firstName} {pro.lastName}
+                      <i class="fa-solid fa-file-signature"></i> {pro.firstName}{" "}
+                      {pro.lastName}
                     </h5>
 
-                   <p> <i class="fa-solid fa-location-dot"></i> {pro.address}</p>
-                    <p><i class="fa-solid fa-calendar"></i> { getDate(pro.createdAt)}</p>
-                    <p><i class="fa-solid fa-phone"></i> {pro.phoneNo}</p>
+                    <p>
+                      {" "}
+                      <i class="fa-solid fa-location-dot"></i> {pro.address}
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-calendar"></i>{" "}
+                      {getDate(pro.createdAt)}
+                    </p>
+                    <p>
+                      <i class="fa-solid fa-phone"></i> {pro.phoneNo}
+                    </p>
 
                     <button class="btn btn-primary">view</button>
                   </div>
@@ -224,7 +236,7 @@ return date;
             );
           })
         ) : (
-          <div class="d-flex align-items-center justify-content-center vh-90">
+          <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center">
               <h1 class="display-1 fw-bold text-primary">Opps!</h1>
               <p class="fs-3"> You have not posted any complaints.</p>
@@ -237,6 +249,7 @@ return date;
             </div>
           </div>
         )}
+        <Footer />
       </div>
     </div>
   );

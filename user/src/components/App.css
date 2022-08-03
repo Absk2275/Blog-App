@@ -67,8 +67,7 @@ a {
   width: 100%;
   padding: 0 10px;
   height: 20px;
-  margin: 5px
-  
+  margin: 5px;
 }
 
 .productsNav a {
@@ -86,7 +85,7 @@ a {
 }
 
 .card {
-  max-width: 80vw !important;
+  max-width: 80% !important;
 }
 
 .card-header .button {
@@ -118,4 +117,8 @@ h {
   align-items: center;
   justify-content: center;
   color: #e4dddd;
+}
+
+.carddd {
+  align-content: center;
 }

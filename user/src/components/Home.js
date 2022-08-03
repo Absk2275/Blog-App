@@ -2,7 +2,7 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./home.css";
-
+import Footer from "./footer";
 import first_slide from "./slideshow/first_slide.png";
 import second_slide from "./slideshow/second_slide.png";
 import third_slide from "./slideshow/third_slide.png";
@@ -61,63 +61,66 @@ function Home() {
           <ul class="mt-2 list-style-none pb-0">
             <span className="textinfo">
               <i class="fa fa-info-circle"> </i>
-              <b>Issues which are not taken up for redress : </b>
+              <b>Issues which are taken up for redress : </b>
             </span>
             <li class="ml-3">
               <i class="fa fa-caret-right"></i>
-              Home Department
+              Power Department
             </li>
             <li class="ml-3">
               <i class="fa fa-caret-right"></i>
-              Horticulture Department
+              Public Health and Engineering (PHE) Department-Water
             </li>
             <li class="ml-3">
               <i class="fa fa-caret-right"></i>
-              Information Technology Department
-            </li>
-
-            <li class="ml-3">
-              <i class="fa fa-caret-right"></i>
-              Labour Department
-            </li>
-            <li class="ml-3">
-              <i class="fa fa-caret-right"></i>
-              Law Department
-            </li>
-
-            <li class="ml-3">
-              <i class="fa fa-caret-right"></i>
-              Police Department.
+              Public Health and Engineering (PHE) Department-Sewage
             </li>
           </ul>
         </div>
 
-        <div class="containersss">
+        <div className="containerrr bg-light mb-2">
           <div class="section-title">
-            <h2>How To Post Grievance</h2>
+            <h2 class="text-center">How To Post Grievance</h2>
           </div>
-          <div class="row">
-            <div class="row order-2 order-lg-1">
+          <div class="row justify-content-evenly text-center ">
+            <div class="row order-2 ">
               <div class="icon-box col-lg-6 mt-lg-0">
-                <i class="bx bx-receipt"></i>
-                <h4>1. Register in CRMS</h4>
-                <p>Goto CRMS and create an account.</p>
+                <h4 class="mb-0">
+                  <b>1. Register in CRMS</b>
+                </h4>
+                <h6 class="mt-1">Goto CRMS and create an account.</h6>
               </div>
               <div class="icon-box col-lg-6">
                 <i class="bx bx-cube-alt"></i>
-                <h4>2. Login using CRMS Account</h4>
+
+                <p class="mb-0">
+                  <b>2. Login using CRMS Account</b>
+                </p>
+
                 <p>Goto CRMS and login using your CRMS Credentials</p>
               </div>
               <div class="icon-box col-lg-6">
                 <i class="bx bx-file"></i>
-                <h4>3. Fill the Form</h4>
+                <p class="mb-0">
+                  <b>3. Fill the Form</b>
+                </p>
                 <p>Fill Grievance Form and Submit.</p>
+              </div>
+
+              <div class="icon-box col-lg-6">
+                <i class="bx bx-file"></i>
+                <p class="mb-0">
+                  <b>4. Status of your complaint</b>
+                </p>
+                <p>Know your complaint status on your profile</p>
               </div>
             </div>
           </div>
+
           <div class="row"></div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

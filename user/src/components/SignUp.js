@@ -8,6 +8,7 @@ import { showErrorMsg, showSuccessMsg } from "../helper/message";
 import "./signup.css";
 import { showLoading } from "../helper/loading";
 import { signup } from "../api/auth";
+import Footer from "./footer";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -130,7 +131,7 @@ const SignUp = () => {
               type="text"
               className="form__input"
               autoFocus
-              placeholder="UserName"
+              placeholder="Enter full name"
               onChange={handleChange}
             />
           </span>
@@ -205,13 +206,14 @@ const SignUp = () => {
       {/* {JSON.stringify(formData)} */}
 
       <div className="container1">
-        <div className="container">
+        <div className="containe">
           {successmsg && showSuccessMsg(successmsg)}
           {loading && <div className="text-center pb=4">{showLoading()}</div>}
           {errormsg && showErrorMsg(errormsg)}
           {ShowSignUpForm()}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -35,7 +35,6 @@ import Pending from "./AdminComponents/Pending";
 import DataDisplay from "./AdminComponents/DataDisplay";
 import Resolved from "./AdminComponents/Resolved";
 
-
 const App = () => (
   <BrowserRouter>
     <Header />
@@ -60,25 +59,33 @@ const App = () => (
           <Route path="Resolved" element={<Resolved />} />
           <Route path=":uid" element={<DataDisplay />} />
         </Route>
-        
-        <Route path="/waterdepartment/dashboard" element={<WaterDepartmentDashboard />}>
+
+        <Route
+          path="/waterdepartment/dashboard"
+          element={<WaterDepartmentDashboard />}
+        >
           <Route path="Pending" element={<Pending1 />} />
           <Route path="Inprogress" element={<Inprogress1 />} />
           <Route path="Resolved" element={<Resolved1 />} />
         </Route>
 
-        <Route path="/powerdepartment/dashboard" element={<PowerDepartmentDashboard />}>
+        <Route
+          path="/powerdepartment/dashboard"
+          element={<PowerDepartmentDashboard />}
+        >
           <Route path="Pending" element={<Pending2 />} />
           <Route path="Inprogress" element={<Inprogress2 />} />
           <Route path="Resolved" element={<Resolved2 />} />
         </Route>
 
-        <Route path="/sewagedepartment/dashboard" element={<SewageDepartmentDashboard />}>
+        <Route
+          path="/sewagedepartment/dashboard"
+          element={<SewageDepartmentDashboard />}
+        >
           <Route path="Pending" element={<Pending3 />} />
           <Route path="Inprogress" element={<Inprogress3 />} />
           <Route path="Resolved" element={<Resolved3 />} />
         </Route>
-        
       </Routes>
     </main>
   </BrowserRouter>
