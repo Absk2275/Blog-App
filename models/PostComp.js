@@ -53,8 +53,12 @@ const PostSchema = new mongoose.Schema(
       deptread:{ type: Number,},
       deptstatus:{ type: Number,},
       empname:{ type: String,},
-      empID:{ type: Number,},
+      empID:{ type: String,},
       empNo:{ type: Number,},
+      empemail: {
+        type: String,
+        
+      },
       date:{
         type:Date,
       },

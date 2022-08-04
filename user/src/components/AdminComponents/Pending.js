@@ -113,6 +113,7 @@ const Pending = () => {
     } catch (err) {
       console.error("error", err);
     }
+    window.location.reload();
   };
 
   const handleEdit = async (pro) => {
@@ -123,7 +124,7 @@ const Pending = () => {
     setOpen1(true);
     setId((id) => ({ ...id, adminstatus: value }));
     console.log(id.adminstatus);
-    // window.location.reload();
+    
   };
   function selected() {
     var subjectIdNode = document.getElementById("department");
@@ -228,19 +229,20 @@ const Pending = () => {
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                <p class="m-0">
+                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
-                    Complaint ID: {id.uid}
+                    <b>Employee ID: </b> {id.empID}
                   </Button>
                   <p>
-                    <b>Department: </b> {id.department}
+                    <b>Employee Name: </b> {id.empname}
+                     
                   </p>
                   <p class="m-0">
-                    <i class="fa-solid fa-comment-dots"></i>
-                    <b> Description :</b> {id.description}
+                  <i class="fa-solid fa-phone"></i>
+                    <b> Employee Phone Number :</b> {id.empNo}
                   </p>
-                </p>
+                </p>)}
               </div>
               <div></div>
               <Button class="btn btn-success m-2" onClick={() => confirm(1)}>

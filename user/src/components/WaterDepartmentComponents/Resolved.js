@@ -277,6 +277,7 @@ return date;
                     <p><i class="fa-solid fa-phone"></i> {pro.phoneNo}</p>
                     <button class="btn btn-primary" >view</button>
                   </div>
+                  <i class="fa-solid fa-circle-check bg-success p-2 ms-auto text-light"><b> Resolved</b></i>
                 </div>
               </div>
             );

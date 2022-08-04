@@ -115,6 +115,7 @@ exports.postController = async(req,res) =>{
     newPost.deptread =0,
     newPost.deptstatus =0,
     newPost.empname="",
+    
     newPost.empID=0,
     newPost.empNo=0,
     

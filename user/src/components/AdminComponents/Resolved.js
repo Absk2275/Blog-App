@@ -268,6 +268,7 @@ const Resolved = () => {
 
                     <button class="btn btn-primary" onClick={() => handleEdit(pro)}>view</button>
                   </div>
+                  <i class="fa-solid fa-circle-cross bg-danger p-2 ms-auto text-light"><b> Rejected</b></i>
                 </div>
               </div>
             );

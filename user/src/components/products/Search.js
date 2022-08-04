@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import localid from "../../helper/localid";
 import Footer from "../footer";
+import "../App.css";
 
 const Search = () => {
   const [contacts, setContacts] = useState([]);
@@ -38,8 +39,8 @@ const Search = () => {
   }
 
   return (
-    <div class="vh-100">
-      <div calss="vh-100">
+    <div>
+      <div class="row align-content-start  mt-2 vh-100">
         <div className="colu">
           {mycomp.length > 0 ? (
             mycomp.map((pro) => {
@@ -57,8 +58,6 @@ const Search = () => {
                                 class="img-thumbnail my-5"
                               />
                               <h4>Name: {pro.username} </h4>
-
-                              <i class="far fa-edit mb-5"></i>
                             </div>
                             <div class="col-md-8">
                               <div class="card-body p-4">
@@ -95,16 +94,17 @@ const Search = () => {
               );
             })
           ) : (
-            <div class="d-flex align-items-center justify-content-center vh-90">
+            <div class="d-flex align-items-center justify-content-center vh-100">
               <div class="text-center">
-                <h1 class="display-1 fw-bold text-primary">Opps!</h1>
-                <p class="fs-3">You are not Logged In.</p>
+                <h1 class="display-1 fw-bold text-primary">Loading...</h1>
+
                 <p class="lead"></p>
               </div>
             </div>
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

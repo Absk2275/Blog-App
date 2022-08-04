@@ -96,7 +96,7 @@ const Signin = () => {
       onSubmit={handleSubmit}
       noValidate
     >
-      <h1 className="form__title">Signin</h1>
+      <h1 className="form__title">LogIn</h1>
       <div className="form__input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
@@ -129,7 +129,7 @@ const Signin = () => {
         <br></br>
       </div>
       <button className="form__button" type="submit">
-        Sign In
+        Log-In
       </button>
       <p className="form__text">
         Don't have an account? <Link to="/SignUp">Register here</Link>

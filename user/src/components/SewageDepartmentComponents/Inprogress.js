@@ -238,6 +238,9 @@ const Inprogress3 = () => {
                     <p>
                       <b>Employee Name: </b> {id.empname}
                     </p>
+                    <p>
+                      <b>Employee Email: </b> {id.empemail}
+                    </p>
                     <p class="m-0">
                       <i class="fa-solid fa-phone"></i>
                       <b> Employee Phone Number :</b> {id.empNo}

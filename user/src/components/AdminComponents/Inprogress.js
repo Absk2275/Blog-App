@@ -272,6 +272,9 @@ const Inprogress = () => {
 
                     <button class="btn btn-primary" onClick={() => handleEdit(pro)}>view</button>
                   </div>
+                  {
+                    pro.deptstatus===2?(<i class="fa-solid fa-circle-check bg-success p-2 ms-auto text-light"><b> Resolved</b></i>):( <i class="fa-solid fa-warning bg-warning  p-2 ms-auto text-light"><b> In-progress</b></i>)
+                  }
                 </div>
               </div>
             );

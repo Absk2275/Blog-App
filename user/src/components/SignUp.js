@@ -197,7 +197,7 @@ const SignUp = () => {
         Register
       </button>
       <p className="form__text">
-        Have an account? <Link to="/SignIn">Sign in</Link>
+        Have an account? <Link to="/SignIn">Log-in</Link>
       </p>
     </form>
   );

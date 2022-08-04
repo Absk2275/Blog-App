@@ -230,7 +230,15 @@ const ListProducts = () => {
                     </p>
 
                     <button class="btn btn-primary">view</button>
+                    
                   </div>
+                  {
+                      pro.adminstatus=== 0 ?( <i class="fa-solid fa-circle-exclamation bg-primary p-2 ms-auto text-light"><b> Validating</b></i>
+                        ) : (pro.adminstatus ===1 ? (pro.deptstatus===2?(<i class="fa-solid fa-circle-check bg-success p-2 ms-auto text-light"><b> Resolved</b></i>):( <i class="fa-solid fa-warning bg-warning  p-2 ms-auto text-light"><b> In-progress</b></i>))
+                          :(<i class="fa-solid fa-circle-xmark bg-danger p-2 ms-auto text-light"><b class="text-danger"> Rejected</b></i> ))
+                  
+                    } 
+                 
                 </div>
               </div>
             );

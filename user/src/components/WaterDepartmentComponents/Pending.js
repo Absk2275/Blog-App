@@ -205,7 +205,7 @@ return date;
               type="text"
               name="empname"
               value={id.empname}
-              placeholder="Enter your first name"
+              placeholder="Enter Employee Name"
               onChange={handleInputChange}
               required
             />
@@ -217,7 +217,7 @@ return date;
               type="text"
               name="empID"
               value={id.empID}
-              placeholder="Enter employee ID"
+              placeholder="Enter Employee ID"
               onChange={handleInputChange}
               required
             />
@@ -229,10 +229,23 @@ return date;
               type="text"
               name="empNo"
               value={id.empNo}
-              placeholder="Enter number"
+              placeholder="Enter Employee number"
               onChange={handleInputChange}
               required
             />
+          </div>
+
+          <div className="input-box">
+            <span className="details">Employee Email</span>
+            <input
+              type="text"
+              name="empemail"
+              value={id.empemail}
+              placeholder="Enter Employee email"
+              onChange={handleInputChange}
+              required
+            />
+            
           </div>
           </div>
           <br></br>
@@ -317,24 +330,25 @@ return date;
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                <p class="m-0">
+                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
-                    Complaint ID: {id.uid}
+                    <b>Employee ID: </b> {id.empID}
                   </Button>
                   <p>
-                    <b>Department: </b> {id.department}
+                    <b>Employee Name: </b> {id.empname}
+                     
                   </p>
                   <p class="m-0">
-                    <i class="fa-solid fa-comment-dots"></i>
-                    <b> Description :</b> {id.description}
+                  <i class="fa-solid fa-phone"></i>
+                    <b> Employee Phone Number :</b> {id.empNo}
                   </p>
-                </p>
+                </p>)}
               </div>
               <div>
               </div>
-              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>Forward</Button>
-              <Button class="btn btn-danger m-2" onClick={() => confirm(2)}>Reject</Button>
+              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>In-Progress</Button>
+             
             </form>
           </DialogContentText>
         </DialogContent>

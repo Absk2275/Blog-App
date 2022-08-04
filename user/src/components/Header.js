@@ -4,6 +4,8 @@ import "./header.css";
 import { isAuthenticated, logout } from "../helper/auth";
 import withRouter from "./withRouter";
 import logo from "./logo.png";
+import localname from "../helper/localname";
+
 
 const Header = ({ navigate }) => {
   const handleLogout = (evt) => {
@@ -68,7 +70,7 @@ const Header = ({ navigate }) => {
                 <Link to="/products/add" className="nav-link active text-light">
                   <p className="text-light mt-3 p-0">
                     <i className="fas fa-home"></i>
-                    <b>Dashboard</b>
+                    <b> {localname()} </b>
                   </p>
                 </Link>
               </li>
@@ -96,7 +98,7 @@ const Header = ({ navigate }) => {
                   className="nav-link active text-light"
                 >
                   <i className="fas fa-home"></i>
-                  <b>Water Department Dashboard</b>
+                  <b> Water Department</b>
                 </Link>
               </li>
             </Fragment>
@@ -119,7 +121,7 @@ const Header = ({ navigate }) => {
               <li className="nav-item active">
                 <Link
                   to="/sewagedepartment/dashboard/Pending"
-                  className="nav-link"
+                  className="nav-link active text-light"
                 >
                   <i className="fas fa-home"></i> <b>Sewage Department</b>
                 </Link>
@@ -131,7 +133,7 @@ const Header = ({ navigate }) => {
         {isAuthenticated() && (
           <ul class="nav navbar-nav navbar-right ml-auto">
             <Fragment>
-              <li class="nav navbar-nav navbar-right">
+              <li class="nav navbar-nav navbar-right ">
                 <Link
                   to="/signin"
                   className="nav-link ml-auto"

@@ -10,6 +10,10 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 
+
+
+
+
 const Pending3 = () => {
   // const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
@@ -93,15 +97,25 @@ const Pending3 = () => {
 				"Content-Type": "application/json",
 			},
 		};
-    
+  //   var firstName =id.firstName;
+  // var lastName =id.lastName;
+  // var email =id.email;
+  // var phoneNo =id.phoneNo;
+  // var address =id.address;
+  // var empemail =id.empemail;
+
 		try {
       console.log(id);
+      // await axios.post("/sendmail", {
+    
+      //   firstName,lastName,email,phoneNo,address,empemail
+        
+      // });
 			await axios.put(
 				`http://localhost:5000/postcomp/${id.uid}`,
 				id,
 				config
 			);
-      
 		
 		} 
     catch (err) {
@@ -148,6 +162,7 @@ const Pending3 = () => {
   setId((id) => ({ ...id, deptstatus:value }));
   console.log(id.adminstatus);
   // window.location.reload();
+  
   }
 
   const handleInputChange = (event) => {
@@ -230,6 +245,17 @@ return date;
               name="empNo"
               value={id.empNo}
               placeholder="Enter number"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="input-box">
+            <span className="details">Employee Email</span>
+            <input
+              type="text"
+              name="empemail"
+              value={id.empemail}
+              placeholder="Enter email"
               onChange={handleInputChange}
               required
             />
@@ -317,24 +343,25 @@ return date;
                 <h4>
                   <b>Assigned Employee</b>
                 </h4>
-                <p class="m-0">
+                {id.empname ==="" ? (<p>Not yet assisgned</p>):(<p class="m-0">
                   <Button class="btn btn-primary  btn-sm m-1" disabled>
                     {" "}
-                    Complaint ID: {id.uid}
+                    <b>Employee ID: </b> {id.empID}
                   </Button>
                   <p>
-                    <b>Department: </b> {id.department}
+                    <b>Employee Name: </b> {id.empname}
+                     
                   </p>
                   <p class="m-0">
-                    <i class="fa-solid fa-comment-dots"></i>
-                    <b> Description :</b> {id.description}
+                  <i class="fa-solid fa-phone"></i>
+                    <b> Employee Phone Number :</b> {id.empNo}
                   </p>
-                </p>
+                </p>)}
               </div>
               <div>
               </div>
-              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>Forward</Button>
-              <Button class="btn btn-danger m-2" onClick={() => confirm(2)}>Reject</Button>
+              <Button class="btn btn-success m-2" onClick={() => confirm(1)}>In-Progress</Button>
+
             </form>
           </DialogContentText>
         </DialogContent>
