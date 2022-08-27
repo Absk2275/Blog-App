@@ -1,0 +1,44 @@
+.column1 {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  
+}
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 2px;
+  
+  justify-items: center;
+   
+}
+.column3 {
+  float: left;
+  width: 40%;
+  padding: 2px;
+   
+}
+.column3 img {
+  
+  width: 90%;
+  height: 90%; 
+  padding: 3px;
+  filter: brightness(120%);
+   filter: contrast(120%);
+   filter: drop-shadow(10px 10px 10px green);
+}
+.title{
+  font-family: "Lucida Console";
+  font-size:50px
+}
+.description{
+
+  font-size:20px
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

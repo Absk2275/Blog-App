@@ -1,35 +1,6 @@
 import axios from "axios";
 
-export const signup = async (data) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
 
-  const response = await axios.post(
-    "http://localhost:5000/api/auth/signup",
-    data,
-    config
-  );
-  return response;
-};
-
-export const signin = async (data) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  const response = await axios.post(
-    "http://localhost:5000/api/auth/signin",
-    data,
-    config
-  );
-
-  return response;
-};
 
 export const postcomp = async (data) => {
   const config = {
@@ -39,7 +10,7 @@ export const postcomp = async (data) => {
   };
 
   const response = await axios.post(
-    "http://localhost:5000/api/auth/postcomp",
+    "http://localhost:5000/api/auth/postblog",
     data,
     config
   );
